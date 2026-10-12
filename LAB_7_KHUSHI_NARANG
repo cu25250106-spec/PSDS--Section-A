@@ -1,0 +1,39 @@
+import heapq
+priority_queue = []
+heapq.heappush(priority_queue, 30)
+heapq.heappush(priority_queue, 10)
+heapq.heappush(priority_queue, 20)
+heapq.heappush(priority_queue, 5)
+
+print("Priority Queue (Min Heap):", priority_queue)
+print("Removed element:", heapq.heappop(priority_queue))
+print("After removal:", priority_queue)
+
+max_heap = []
+
+numbers = [30, 10, 20, 5, 40]
+
+for num in numbers:
+    heapq.heappush(max_heap, -num)
+
+print("\nMax Heap:")
+
+while max_heap:
+    print(-heapq.heappop(max_heap), end=" ")
+
+
+def heap_sort(arr):
+    heap = []
+    for element in arr:
+        heapq.heappush(heap, element)
+    sorted_array = []
+    while heap:
+        sorted_array.append(heapq.heappop(heap))
+
+    return sorted_array
+
+
+arr = [40, 10, 30, 50, 20, 5]
+
+print("\n\nOriginal Array:", arr)
+print("Sorted Array:", heap_sort(arr))
